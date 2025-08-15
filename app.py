@@ -1074,7 +1074,7 @@ async def diagnose(full: bool = Query(False, description="If true, run extended 
 
     # prepare tasks
     tasks = {
-        "env": run_in_thread(_env_check, ["gemini_api_1","gemini_api_2","gemini_api_3","gemini_api_4","gemini_api_5","gemini_api_6","gemini_api_7","gemini_api_8","gemini_api_9","gemini_api_10","GOOGLE_MODEL", "LLM_TIMEOUT_SECONDS"], timeout=3),
+        "env": run_in_thread(_env_check, ["GOOGLE_API_KEY","GOOGLE_MODEL", "LLM_TIMEOUT_SECONDS"], timeout=3),
         "system": run_in_thread(_system_info, timeout=30),
         "tmp_write": run_in_thread(_temp_write_test, timeout=30),
         "cwd_write": run_in_thread(_app_write_test, timeout=30),
